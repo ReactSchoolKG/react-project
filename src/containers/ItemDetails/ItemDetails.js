@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
+import ItemsService from "../../services/ItemsService";
+import ItemDetails from "../../components/ItemDetails/ItemDetails";
 
 class ItemDetailsContainer extends Component {
+  constructor () {
+    super();
+    this.state = {
+      id: null,
+      item: null
+    }
+  }
+
   render () {
-    const id = this.props.match.params.id;
+    const { id, item } = this.state;
     return <div className="item-details-container">
-      <h2>
-        Single Item # {id}
-      </h2>
-      <Link to="/items/1"> 1 </Link>
-      <Link to="/items/2"> 2 </Link>
+      <ItemDetails id={id} item={item}/>
     </div>
   }
 
   componentDidMount () {
-    console.log('mount');
-  }
-
-  componentDidUpdate (prevProps, prevState) {
-    console.log('update', prevProps, prevState);
+    const id = this.props.match.params.id;
+    ItemsService.getOne(id)
+        .then(res => {
+          this.setState({
+            id,
+            item: res.data
+          })
+        })
   }
 }
 
