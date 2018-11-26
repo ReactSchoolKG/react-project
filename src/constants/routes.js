@@ -3,7 +3,9 @@ import AboutContainer from "../containers/About/About";
 
 export const PATHS = Object.freeze({
   INDEX: '/',
-  ABOUT: '/about'
+  ABOUT: '/about',
+  ITEMS: '/items',
+  ITEM_DETAILS: '/items/:id'
 });
 
 export const ROUTES = Object.freeze([

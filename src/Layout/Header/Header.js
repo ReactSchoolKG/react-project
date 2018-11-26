@@ -7,6 +7,7 @@ class Header extends Component {
     return <header className="header">
       <Link to={PATHS.INDEX}>Home</Link>
       <Link to={PATHS.ABOUT}>About</Link>
+      <Link to={PATHS.ITEMS}>Items</Link>
     </header>
   }
 }
