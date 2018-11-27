@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ItemsService from "../../services/ItemsService";
-import ItemDetails from "../../components/ItemDetails/ItemDetails";
+import ItemDetails from "../../components/ItemDetails";
 
 class ItemDetailsContainer extends Component {
   constructor () {
@@ -21,6 +21,8 @@ class ItemDetailsContainer extends Component {
 
   componentDidMount () {
     const id = this.props.match.params.id;
+  
+    console.log('id', this.props);
     ItemsService.getOne(id)
         .then(res => {
           this.setState({
