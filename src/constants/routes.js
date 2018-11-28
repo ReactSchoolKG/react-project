@@ -6,7 +6,7 @@ export const PATHS = Object.freeze({
   ABOUT: '/about',
   ITEMS: '/items',
   ITEM_DETAILS: '/items/:id',
-  NEW_COMPONENT: '/new'
+  LIFTING_COMPONENT: '/lifting'
 });
 
 export const ROUTES = Object.freeze([
