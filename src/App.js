@@ -10,6 +10,7 @@ import ItemDetailsContainer from "./containers/ItemDetails";
 import {PATHS} from "./constants/routes";
 import Componento from './components/additionalComponent/Componento';
 import Error404 from './components/additionalComponent/404';
+import Lifting from './components/additionalComponent/Lifting'
 
 class App extends Component {
   render() {
@@ -23,7 +24,8 @@ class App extends Component {
                 <Route exact path={PATHS.ITEMS} component={ItemsContainer} />
                 <Route exact path={PATHS.ITEM_DETAILS} component={ItemDetailsContainer} />
                 <Route path={PATHS.DASH1} component={Componento}/>
-                <Route path={PATHS.DASH2} render={()=>{return(<Redirect to={PATHS.DASH1}/>);}}/>
+                <Route path={PATHS.DASH2} render={()=>(<Redirect to={PATHS.DASH1}/>)}/>
+                <Route path={PATHS.LIFTING} component={Lifting} />
                 <Route component={Error404}/>
               </Switch>
             </MainLayout>

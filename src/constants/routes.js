@@ -7,7 +7,8 @@ export const PATHS = Object.freeze({
   ITEMS: '/items',
   ITEM_DETAILS: '/items/:id',
   DASH1:'/dashboard1',
-  DASH2:'/dashboard2'
+  DASH2:'/dashboard2',
+  LIFTING:'/lifting'
 });
 
 export const ROUTES = Object.freeze([
