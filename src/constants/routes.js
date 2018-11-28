@@ -4,7 +4,10 @@ import AboutContainer from "../containers/About/About";
 export const PATHS = Object.freeze({
   INDEX: '/',
   ABOUT: '/about',
+  NEXT: '/next',
+  LAST: '/last',
   ITEMS: '/items',
+  LIFTING: '/lifting',
   ITEM_DETAILS: '/items/:id'
 });
 
