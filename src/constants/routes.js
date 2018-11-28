@@ -5,7 +5,10 @@ export const PATHS = Object.freeze({
   INDEX: '/',
   ABOUT: '/about',
   ITEMS: '/items',
-  ITEM_DETAILS: '/items/:id'
+  ITEM_DETAILS: '/items/:id',
+  DASHBOARD1:"/dashboard1",
+  DASHBOARD2:"/dashboard2",
+  LIFTING:"/lifting",
 });
 
 export const ROUTES = Object.freeze([
