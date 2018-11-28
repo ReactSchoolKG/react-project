@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch,Redirect } from 'react-router-dom';
 
 import './styles/base.scss';
 import MainLayout from "./Layout/Main";
@@ -8,6 +8,9 @@ import AboutContainer from "./containers/About";
 import ItemsContainer from "./containers/Items";
 import ItemDetailsContainer from "./containers/ItemDetails";
 import {PATHS} from "./constants/routes";
+import Componento from './components/additionalComponent/Componento';
+import Error404 from './components/additionalComponent/404';
+import Lifting from './components/additionalComponent/Lifting'
 
 class App extends Component {
   render() {
@@ -20,6 +23,10 @@ class App extends Component {
                 <Route path={PATHS.ABOUT} component={AboutContainer}/>
                 <Route exact path={PATHS.ITEMS} component={ItemsContainer} />
                 <Route exact path={PATHS.ITEM_DETAILS} component={ItemDetailsContainer} />
+                <Route path={PATHS.DASH1} component={Componento}/>
+                <Route path={PATHS.DASH2} render={()=>(<Redirect to={PATHS.DASH1}/>)}/>
+                <Route path={PATHS.LIFTING} component={Lifting} />
+                <Route component={Error404}/>
               </Switch>
             </MainLayout>
           </div>
