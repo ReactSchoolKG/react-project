@@ -28,18 +28,7 @@ class Lifting extends React.Component {
     changer = (mainList, otherList, item, cond) => {
         otherList.push(Number(item));
         mainList.splice(mainList.indexOf(Number(item)), 1);
-        if(cond){
-            this.setState({
-                leftList: mainList,
-                rightList: otherList
-            })
-        }
-        else{
-            this.setState({
-                leftList: otherList,
-                rightList: mainList
-            })
-        }
+        cond ? this.setState({leftList: mainList,rightList: otherList}) : this.setState({leftList: otherList,rightList: mainList})
     }
 }
 
