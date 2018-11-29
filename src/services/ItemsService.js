@@ -1,19 +1,18 @@
-import axios from 'axios';
 import {API_BASE} from "../constants/API";
 
 class ItemsServiceClass {
   getAll () {
-    return axios.get(`${API_BASE}/items`)
+    return fetch(`${API_BASE}/items`)
         .then(res => {
-          return res.data;
+          return res.json();
         })
         .catch(err => console.log(err));
   }
 
   getOne (id) {
-    return axios.get(`${API_BASE}/items/${id}`)
+    return fetch(`${API_BASE}/items/${id}`)
         .then(res => {
-          return res.data;
+          return res.json();
         })
         .catch(err => console.log(err));
   }

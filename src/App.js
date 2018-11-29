@@ -7,6 +7,7 @@ import HomeContainer from "./containers/Home";
 import AboutContainer from "./containers/About";
 import ItemsContainer from "./containers/Items";
 import ItemDetailsContainer from "./containers/ItemDetails";
+import LiftingContainer from "./containers/Lifting";
 import {PATHS} from "./constants/routes";
 
 class App extends Component {
@@ -19,7 +20,8 @@ class App extends Component {
                 <Route exact path={PATHS.INDEX} component={HomeContainer} />
                 <Route path={PATHS.ABOUT} component={AboutContainer}/>
                 <Route exact path={PATHS.ITEMS} component={ItemsContainer} />
-                <Route exact path={PATHS.ITEM_DETAILS} component={ItemDetailsContainer} />
+                <Route path={PATHS.ITEM_DETAILS} component={ItemDetailsContainer} />
+                <Route path={PATHS.LIFTING} component={LiftingContainer} />
               </Switch>
             </MainLayout>
           </div>

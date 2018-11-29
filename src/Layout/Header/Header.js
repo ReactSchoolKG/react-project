@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {PATHS} from "../../constants/routes";
 
 class Header extends Component {
   render () {
     return <header className="header">
-      <Link to={PATHS.INDEX}>Home</Link>
-      <Link to={PATHS.ABOUT}>About</Link>
-      <Link to={PATHS.ITEMS}>Items</Link>
+      <NavLink activeClassName='active' to={PATHS.INDEX}>Home</NavLink>
+      <NavLink activeClassName='active' to={PATHS.ABOUT}>About</NavLink>
+      <NavLink activeClassName='active' to={PATHS.ITEMS}>Items</NavLink>
+      <NavLink activeClassName='active' to={PATHS.LIFTING}>Lifting</NavLink>
     </header>
   }
 }
