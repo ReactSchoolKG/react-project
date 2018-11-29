@@ -92,7 +92,3 @@ class Lifting extends React.Component {
 }
 
 export default Lifting;
-
-// ???? Does it normal use this methods like that:
-// first create slice than doing something and after that run
-// set state
