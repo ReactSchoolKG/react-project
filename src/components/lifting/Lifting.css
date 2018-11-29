@@ -1,0 +1,6 @@
+.flex-container {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
