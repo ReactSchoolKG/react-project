@@ -8,6 +8,9 @@ class Header extends Component {
       <Link to={PATHS.INDEX}>Home</Link>
       <Link to={PATHS.ABOUT}>About</Link>
       <Link to={PATHS.ITEMS}>Items</Link>
+      <Link to={"/dashboard"}>Dashboard</Link>
+      <Link to={"/dashboard2"}>Dashboard2</Link>
+      <Link to = {"/lifting"}>Lifting</Link>
     </header>
   }
 }
