@@ -23,9 +23,9 @@ class LiftingComponent extends Component {
 
   changePlace = (e) => {
     let arrayItem = e.target.textContent;
-    let showCurrentArrayValue = this.showCurrentArray(arrayItem);
-    let currArray = this.showCurrentArray(arrayItem) ? this.state.firstArray : this.state.secondArray;
-    let anotherArray = this.showCurrentArray(arrayItem) ? this.state.secondArray : this.state.firstArray;
+    let showCurrentArrayValue = this.isItFirstArray(arrayItem);
+    let currArray = showCurrentArrayValue ? this.state.firstArray : this.state.secondArray;
+    let anotherArray = showCurrentArrayValue ? this.state.secondArray : this.state.firstArray;
   
     let newFirstArray = currArray.filter((item) => {
       return item != arrayItem;
@@ -47,7 +47,7 @@ class LiftingComponent extends Component {
     }   
   }
 
-  showCurrentArray = (item) => {
+  isItFirstArray = (item) => {
     let array = this.state.firstArray.filter((i) =>{
       return i == item;
     });
