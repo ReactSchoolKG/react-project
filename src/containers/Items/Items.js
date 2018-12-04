@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import ItemsService from "../../services/ItemsService";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchAllItems } from '../../actions/items';
 import Items from "../../components/Items";
 
 class ItemsContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      items: []
-    }
-  }
   render () {
     return <div className="items-container">
-      <Items items={this.state.items}/>
+      <Items items={this.props.items}/>
     </div>
   }
 
   componentDidMount() {
-    ItemsService.getAll()
-        .then(res => {
-          this.setState({
-            items: res.data
-          });
-        });
+    this.props.actions.fetchAllItems();
   }
 }
 
-export default ItemsContainer;
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    fetchAllItems
+  }, dispatch)
+});
+
+const mapStateToProps = ({ itemsData }) => ({
+  items: itemsData.items
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsContainer);
