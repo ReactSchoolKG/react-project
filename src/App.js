@@ -10,6 +10,7 @@ import AboutContainer from "./containers/About";
 import ItemsContainer from "./containers/Items";
 import ItemDetailsContainer from "./containers/ItemDetails";
 import {PATHS} from "./constants/routes";
+import PrivateRoute from "./containers/PrivateRoute";
 
 import './styles/base.scss';
 
@@ -23,8 +24,8 @@ class App extends Component {
                 <Switch>
                   <Route exact path={PATHS.INDEX} component={HomeContainer} />
                   <Route path={PATHS.ABOUT} component={AboutContainer}/>
-                  <Route exact path={PATHS.ITEMS} component={ItemsContainer} />
-                  <Route exact path={PATHS.ITEM_DETAILS} component={ItemDetailsContainer} />
+                  <PrivateRoute exact path={PATHS.ITEMS} component={ItemsContainer} />
+                  <PrivateRoute exact path={PATHS.ITEM_DETAILS} component={ItemDetailsContainer} />
                 </Switch>
               </MainLayout>
             </div>
