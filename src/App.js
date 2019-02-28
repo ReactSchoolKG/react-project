@@ -1,30 +1,38 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-import './styles/base.scss';
+import './styles/login.css';
+import getTodo from './containers/TodoLIst/getTodo'
 import MainLayout from "./Layout/Main";
-import HomeContainer from "./containers/Home";
-import AboutContainer from "./containers/About";
-import ItemsContainer from "./containers/Items";
-import ItemDetailsContainer from "./containers/ItemDetails";
+import Login from "./containers/Login";
+import SignIn from "./containers/Sign_in";
+import getTodosByID from './containers/TodoLIst/getTodo'
+import PrivateRoute from './containers/PrivateRoute'
+
+import { Provider } from 'react-redux'
+import store from './services/store'
+// import SignIn from './containers/Sign_in/SignIn'
+
 import {PATHS} from "./constants/routes";
 
 class App extends Component {
   render() {
     return (
+        <Provider store={store}>
         <BrowserRouter>
           <div className="App">
             <MainLayout>
               <Switch>
-                <Route exact path={PATHS.INDEX} component={HomeContainer} />
-                <Route path={PATHS.ABOUT} component={AboutContainer}/>
-                <Route exact path={PATHS.ITEMS} component={ItemsContainer} />
-                <Route exact path={PATHS.ITEM_DETAILS} component={ItemDetailsContainer} />
+                <Route exact path={PATHS.LOGIN} component={Login} />
+                <Route path={PATHS.SIGN_IN} component={SignIn}/>
+                <PrivateRoute exact path={PATHS.TODOS} component={getTodo} />
+                <PrivateRoute exact path={PATHS.TODOS_ID} component={getTodosByID} />
               </Switch>
             </MainLayout>
-          </div>
+              </div>
+
         </BrowserRouter>
-    );
+        </Provider>
+            );
   }
 }
 

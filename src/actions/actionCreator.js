@@ -1,24 +1,29 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from './actionTypes'
+import { REMOVE_TODO, GET_BY_ID, ADD_TODO, UPDATE} from './actionTypes'
 
-let TodoId = 1;
+// export const saveList = element => ({
+//     type: SAVE_LIST,
+//     payload: element
+// })
 
-export const addTodo = text => ({
-    type: ADD_TODO,
-    id: TodoId++,
+export const addTodo = (addElement) =>({
+    type:ADD_TODO,
+    payload: addElement
+});
+
+
+export const getById = (element) =>({
+  type: GET_BY_ID,
+  element
+});
+
+export const updateItem = (element, text) =>({
+    type: UPDATE,
+    element,
     text
-})
+});
 
-export const deleteTodo = (id) => ({
+export const removeTaskById= (elementId, key)=>({
     type: REMOVE_TODO,
-    id: id
-})
-
-export const toggleTodo = (id) => ({
-    type: TOGGLE_TODO,
-    id: id
-})
-
-export const setVisibilityFilter = filter => ({
-    type: SET_VISIBILITY_FILTER,
-    filter
-})
+    elementId,
+    key
+});

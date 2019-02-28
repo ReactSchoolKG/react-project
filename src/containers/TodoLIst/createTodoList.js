@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
+
 import {reduxForm, Form, Field} from 'redux-form';
 import {FormControl, FormGroup,Button} from "react-bootstrap";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './todo.css'
 
 class CreateTodo extends Component{
-state={
-    title:''
-}
-
-    handleChangeTodo = event => {
-        this.setState({title: event.target.value });
-    }
-
-    handleSubmit=()=>{
-        this.props.add(this.state.title)
-
-    }
 
     renderTextField =(props)=>{
         const {
@@ -40,18 +31,27 @@ state={
     render() {
         const {handleSubmit} = this.props;
         return (
-            <Form onSubmit={handleSubmit} className="login-form">
-                <label className="texte-info">Login</label>
-                <Field
-                    onChang={this.handleChangeTodo}
-                    className="namee-form"
-                    name="username"
-                    type="text"
-                    component={this.renderTextField}
-                    text="add"
-                />
-                <Button onClick={this.handleSubmit}>ADD</Button>
+            <React.Fragment>
+
+            <Form onSubmit={handleSubmit} className="todo-form">
+
+                <label className="texte-info">Create Todo</label>
+                <div className="add-form-wrapper">
+                    <Field
+                        className="namee-form"
+                        name="title"
+                        type="text"
+                        component={this.renderTextField}
+                        text="add"
+                    />
+
+                <Button type='submit' className="btn-add" onClick={this.handleSubmit}>ADD</Button>
+                </div>
+
+                {this.props.list}
+
             </Form>
+            </React.Fragment>
         )
     }
 }
